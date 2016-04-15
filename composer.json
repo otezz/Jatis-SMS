@@ -1,0 +1,28 @@
+{
+    "name": "otezz/jatis-sms",
+    "description": "Jatis SMS gateway API wrapper",
+    "keywords": [
+        "api",
+        "jatis"
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "ext-curl": "*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Seto Kuslaksono",
+            "email": "kuslaksono@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Otezz\\Jatis\\": "src/"
+        }
+    }
+}
