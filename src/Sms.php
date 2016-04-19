@@ -4,15 +4,44 @@ namespace Otezz\Jatis;
 
 use GuzzleHttp\Client;
 
+/**
+ * Class Sms
+ * @package Otezz\Jatis
+ */
 class Sms
 {
+    /**
+     * URL for Jatis
+     */
     const JATIS_BASE_URL = 'sms-api.jatismobile.com';
 
+    /**
+     * @var
+     */
     private $username;
+
+    /**
+     * @var
+     */
     private $password;
+
+    /**
+     * @var string
+     */
     private $protocol;
+
+    /**
+     * @var string
+     */
     private $baseUrl;
 
+    /**
+     * Sms constructor.
+     *
+     * @param string $username
+     * @param string $password
+     * @param bool $useHttps
+     */
     public function __construct($username, $password, $useHttps = true)
     {
         $this->username = $username;
@@ -20,7 +49,13 @@ class Sms
         $this->protocol = $useHttps ? 'https' : 'http';
         $this->baseUrl  = $this->protocol . '://' . self::JATIS_BASE_URL;
     }
-    
+
+    /**
+     * Send request to Jatis server
+     *
+     * @param array $data
+     * @return array
+     */
     public function send(array $data)
     {
         $query = $this->buildParams($data);
@@ -30,6 +65,12 @@ class Sms
         return $this->parseResponse($response);
     }
 
+    /**
+     * Assign credentials and user input to Jatis format
+     *
+     * @param array $data
+     * @return array
+     */
     private function buildParams(array $data)
     {
         return [
@@ -45,6 +86,8 @@ class Sms
     }
 
     /**
+     * Send post request to Jatis server
+     *
      * @param $query
      * @return \Psr\Http\Message\StreamInterface
      */
@@ -58,6 +101,12 @@ class Sms
         return $response->getBody();
     }
 
+    /**
+     * Parse response from Jatis server
+     *
+     * @param $response
+     * @return array
+     */
     private function parseResponse($response)
     {
         $message = 'Unknown response';
