@@ -1,4 +1,4 @@
-# Jatis-SMS
+# Jatis-SMS [![Build Status](https://travis-ci.org/otezz/Jatis-SMS.svg?branch=master)](https://travis-ci.org/otezz/Jatis-SMS)
 Jatis SMS gateway API wrapper
 
 Installation
